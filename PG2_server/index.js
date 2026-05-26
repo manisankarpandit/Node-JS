@@ -8,6 +8,7 @@ const myServer = http.createServer((req,res)=>{
 
     const log = `${Date.now()}: New Req Received..\n`;
     fs.appendFile('log.txt',log, (err,data)=>{
+        //use always non blogging request
         switch(req.url){
             case '/':res.end("hOMEPAGE");
             break;
