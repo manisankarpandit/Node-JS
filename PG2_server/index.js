@@ -27,7 +27,7 @@ const myServer = http.createServer((req,res)=>{
                 const search = myUrl.query.search_query;
                 res.end("Here are your result for "+ search);
                 break;
-                
+
             default : 
                 res.end("404 Not Found");
         }
@@ -37,6 +37,9 @@ const myServer = http.createServer((req,res)=>{
 //we needed a port number with callback function for run the server
 
 myServer.listen(8000,()=>console.log("server started"));
+
+//after start server you paste this link http://localhost:8000/search?search_query=java+mani
+//then it will generare the output Here are your result for java mani
 
 
 
