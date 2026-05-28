@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const url = require("url");
 
-const myServer = http.createServer((req,res)=>{
+function myhandler(req,res){
     // console.log("New Req Rec..");
     if(req.url==="/favicon.ico") return res.end(); 
     //comming request k liya a log creation using fs module import in upper
@@ -32,16 +32,17 @@ const myServer = http.createServer((req,res)=>{
                 if(req.method==="GET") res.end("THis is signup form");
                 else if(req.method=="POST")
                     //db querry
-                    res.end("Success");
+                    res.end("Success");  
 
             default : 
                 res.end("404 Not Found");
         }
         // res.end("Hello From Server again");
     });
-});
+};
 //we needed a port number with callback function for run the server
 
+const myServer = http.createServer(myhandler);
 myServer.listen(8000,()=>console.log("server started"));
 
 //after start server you paste this link http://localhost:8000/search?search_query=java+mani
