@@ -6,8 +6,8 @@ REST API - JSON
   
   //Dynamic path parameter
   GET/api/user/:id here :id as a variable
- GET/api/user/1 - GET the user with id 1
- GET/api/user/2 - GET the user with id 2
+ GET/api/user/1 - GET the user with id 1 -done
+ GET/api/user/2 - GET the user with id 2-done
 
  POST/api/user - create new user
 

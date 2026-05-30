@@ -21,19 +21,28 @@ app.get('/api/users',(req,res)=>{
     return res.json(users);
 })
 
+//if route are same then we can merge them 
 //  GET/api/user/1 - GET the user with id 1
 //  GET/api/user/2 - GET the user with id 2
-app.get("/api/users/:id",(req,res)=>{
+
+app.route("/api/users/:id")
+.get((req,res)=>{
     const id = Number(req.params.id); //id ko get korna hai first and convert into number
     const user = users.find((user)=>user.id === id);
-    return res.json(user);
+    return res.json(user); 
+})
+.patch((req,res)=>{
+    //edit user with id
+    return res.json ({status:"pending"})
+})
+.delete((req,res)=>{
+    return res.json ({status:"pending"})
 })
 
-
-
-
-
-
+app.post('/api/users',(req,res)=>{
+    //TODO : create new user
+    return res.json ({status:"pending"})
+})
 
 
 
