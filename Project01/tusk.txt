@@ -1,0 +1,12 @@
+//HOW to REST API works we see in tasks,txt
+
+REST API - JSON
+
+ GET/user - List all user - done
+ GET/user/1 - GET the user with id 1
+ GET/user/2 - GET the user with id 2
+
+ POST/user - create new user
+
+ PATCH/user/1 - EDIT THE USER WITH ID 1
+  DELETE / USER/1 - DEKETE THE USER WITH ID 1
