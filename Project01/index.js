@@ -16,8 +16,17 @@ const PORT = 8000;
 // })
 
 //REST API 
+// GET/user - List all user 
 app.get('/api/users',(req,res)=>{
     return res.json(users);
+})
+
+//  GET/api/user/1 - GET the user with id 1
+//  GET/api/user/2 - GET the user with id 2
+app.get("/api/users/:id",(req,res)=>{
+    const id = Number(req.params.id); //id ko get korna hai first and convert into number
+    const user = users.find((user)=>user.id === id);
+    return res.json(user);
 })
 
 
