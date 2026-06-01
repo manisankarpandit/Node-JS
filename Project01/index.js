@@ -6,6 +6,16 @@ const users = require("./MOCK_DATA.json"); //users mock data k upor hover kor ra
 const app = express();
 const PORT = 8000;
 
+//Middleware ->plugin
+app.use(express.urlencoded({extended:false}));
+//Middleware 2
+app.use((req,res,next)=>{
+    console.log("Hello From Middleware 1");
+    // return res.json({mgs : "Hello From middleware 1"});
+    next();//for forwording the message into the next request 
+})
+
+
 //Routs
 // app.get("/users",(req,res)=>{
 //     const html = `
@@ -40,13 +50,13 @@ app.route("/api/users/:id")
     return res.json ({status:"pending"})
 })
 
-//Middleware ->plugin
-app.use(express.urlencoded({extended:false}));
+
 
 app.post('/api/users',(req,res)=>{
     //TODO : create new user
-    const body = req.body;
+    const body = req.body; //Stores the submitted data in body.
     users.push({...body,id:users.length+1});
+    //JSON.stringify(users) converts the JavaScript array into JSON text.
     fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{
         return  res.json({status:"success",id:users.length});
     });
