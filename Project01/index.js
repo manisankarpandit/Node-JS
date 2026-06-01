@@ -7,6 +7,8 @@ const app = express();
 const PORT = 8000;
 
 //Middleware ->plugin
+//This is a built-in Express middleware used to read data sent from HTML forms
+//  (application/x-www-form-urlencoded) and store it in req.body.
 app.use(express.urlencoded({extended:false}));
 //Middleware 2
 app.use((req,res,next)=>{
