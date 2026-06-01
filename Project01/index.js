@@ -11,9 +11,16 @@ app.use(express.urlencoded({extended:false}));
 //Middleware 2
 app.use((req,res,next)=>{
     console.log("Hello From Middleware 1");
+    req.userName = "Mani";
     // return res.json({mgs : "Hello From middleware 1"});
     next();//for forwording the message into the next request 
-})
+}) 
+app.use((req,res,next)=>{
+    console.log("Hello From Middleware 2",req.userName);
+    fs.appendFile("log.txt", `\n ${Date.now()} : ${req.method} : ${req.path}`,(err,data)=>{
+        next();
+    })
+}) 
 
 
 //Routs
