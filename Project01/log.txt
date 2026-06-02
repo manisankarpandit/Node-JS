@@ -6,3 +6,6 @@
  1780379774228 : GET : /api/users
  1780379852447 : GET : /api/users
  1780379893221 : GET : /api/users
+ 1780381899597 : GET : /api/users
+ 1780381905030 : POST : /api/users
+ 1780382226759 : POST : /api/users
