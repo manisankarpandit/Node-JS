@@ -52,6 +52,9 @@ app.route("/api/users/:id")
 .get((req,res)=>{
     const id = Number(req.params.id); //id ko get korna hai first and convert into number
     const user = users.find((user)=>user.id === id);
+
+    //this is 404 status code while user not found
+    if(!user) return res.status(404).json({error:"User ot found.."});
     return res.json(user); 
 })
 .patch((req,res)=>{
@@ -68,7 +71,7 @@ app.post('/api/users',(req,res)=>{
     //TODO : create new user
     const body = req.body; //Stores the submitted data in body.
 
-    //This is about status code -> mdn http responce status code
+    //This is about status code -> mdn http responce status code 
     if(!body || !body.first_name || !body.last_name ||!body.email ||!body.gender || !body.job_title){
         return res.status(400).json({msg:'All fields are required'})
     }
