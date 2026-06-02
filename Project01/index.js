@@ -38,6 +38,8 @@ app.use((req,res,next)=>{
 //REST API 
 // GET/user - List all user 
 app.get('/api/users',(req,res)=>{
+    // res.setHeader("myName","Mani Sankar Pandit");//http header
+    console.log(req.headers);
     return res.json(users);
 })
 
