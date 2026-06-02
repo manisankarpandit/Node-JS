@@ -35,11 +35,12 @@ app.use((req,res,next)=>{
 //     res.send(html);
 // })
 
-//REST API 
+//REST API  
 // GET/user - List all user 
 app.get('/api/users',(req,res)=>{
-    // res.setHeader("myName","Mani Sankar Pandit");//http header
-    console.log(req.headers);
+    res.setHeader("x-myName","Mani Sankar Pandit");//http header and this is custom header
+    // allways add x to custom header
+    // console.log(req.headers);
     return res.json(users);
 })
 
