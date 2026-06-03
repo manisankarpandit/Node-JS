@@ -53,7 +53,7 @@ app.route("/api/users/:id")
     const id = Number(req.params.id); //id ko get korna hai first and convert into number
     const user = users.find((user)=>user.id === id);
 
-    //this is 404 status code while user not found
+    //this is 404 status code while user not found 
     if(!user) return res.status(404).json({error:"User ot found.."});
     return res.json(user); 
 })
