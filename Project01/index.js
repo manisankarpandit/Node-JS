@@ -101,7 +101,7 @@ app.route("/api/users/:id")
 
 
 
-app.post('/api/users',(req,res)=>{
+app.post('/api/users', async (req,res)=>{
     //TODO : create new user
     const body = req.body; //Stores the submitted data in body.
 
@@ -126,6 +126,13 @@ app.post('/api/users',(req,res)=>{
     // });
 
     //using mongodb
+    await User.create({
+        firstName : body.first_name,
+        lastName : body.last_name ,
+        email : body.email,
+        gender : body.gender , 
+       JobTitle : body.job_title,
+    });
 
 });
 
