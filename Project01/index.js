@@ -3,6 +3,7 @@ const fs = require("fs");
 const mongoose = require("mongoose");
 //import mock data
 const users = require("./MOCK_DATA.json"); //users mock data k upor hover kor raha hai
+const { type } = require("os");
 
 const app = express();
 const PORT = 8000;
@@ -25,8 +26,11 @@ const userSchema = new mongoose.Schema({
     job_title :{
         type:String,
     },
-    
-})
+    gender:{
+        type:String,
+    },
+}) //this is create schema
+// then we create schema to model
 
 
 //Middleware ->plugin
