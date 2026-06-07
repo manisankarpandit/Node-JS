@@ -7,6 +7,14 @@ const users = require("./MOCK_DATA.json"); //users mock data k upor hover kor ra
 const app = express();
 const PORT = 8000;
 
+//Create schema
+const userSchema = new mongoose.Schema({
+    first_name:{
+        type:String,
+    }
+})
+
+
 //Middleware ->plugin
 //This is a built-in Express middleware used to read data sent from HTML forms
 //  (application/x-www-form-urlencoded) and store it in req.body.
