@@ -127,12 +127,15 @@ app.post('/api/users', async (req,res)=>{
 
     //using mongodb
     await User.create({
-        firstName : body.first_name,
-        lastName : body.last_name ,
-        email : body.email,
-        gender : body.gender , 
-       JobTitle : body.job_title,
+        first_name: body.first_name,
+        last_name: body.last_name,
+        email: body.email,
+        gender: body.gender,
+        job_title: body.job_title,
     });
+
+    console.log("result",result);
+    return res.status(201).json({msg:"success"});
 
 });
 
