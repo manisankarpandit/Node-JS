@@ -11,7 +11,8 @@ const PORT = 8000;
 //connection with mongoose
 mongoose
 .connect("mongodb://localhost:27017/mani_first")
-.then(()=> console.log("MongoDB Connected"));
+.then(()=> console.log("MongoDB Connected"))
+.catch((err)=>console.log("Mongo Error",err));
 
 //Create schema
 const userSchema = new mongoose.Schema({
