@@ -16,7 +16,16 @@ const userSchema = new mongoose.Schema({
     last_name:{
         type:String,
         required:false, //false : if last name is not so importent 
-    }
+    },
+    email:{
+        type:String,
+        required:false, 
+        unique:true,
+    },
+    job_title :{
+        type:String,
+    },
+    
 })
 
 
