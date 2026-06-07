@@ -8,6 +8,11 @@ const { type } = require("os");
 const app = express();
 const PORT = 8000;
 
+//connection with mongoose
+mongoose
+.connect("mongodb://localhost:27017/mani_first")
+.then(()=> console.log("MongoDB Connected"));
+
 //Create schema
 const userSchema = new mongoose.Schema({
     first_name:{
@@ -32,6 +37,7 @@ const userSchema = new mongoose.Schema({
 }) //this is create schema
 // then we create schema to model
 
+const User = mongoose.model("user",userSchema)
 
 //Middleware ->plugin
 //This is a built-in Express middleware used to read data sent from HTML forms
