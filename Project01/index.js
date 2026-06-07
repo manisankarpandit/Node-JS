@@ -11,6 +11,11 @@ const PORT = 8000;
 const userSchema = new mongoose.Schema({
     first_name:{
         type:String,
+        required:true, //true : that means first name is mendatory
+    },
+    last_name:{
+        type:String,
+        required:false, //false : if last name is not so importent 
     }
 })
 
