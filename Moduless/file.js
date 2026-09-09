@@ -24,5 +24,7 @@ const fs = require("fs");
 // fs.cpSync("./test.txt","./copy.txt");
 
 //Delete any file 
-fs.unlinkSync("./copy.txt");
+// fs.unlinkSync("./copy.txt");
+
+console.log(fs.statSync("./test.txt"));
 
