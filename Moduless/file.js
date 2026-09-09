@@ -11,10 +11,14 @@ const fs = require("fs");
 // console.log(result);
 
 //using Async function which is not return
-fs.readFile("./contects.txt","utf-8",(err,result)=>{
-    if(err) console.log("Error",err);
-    else console.log(result);
-})
+// fs.readFile("./contects.txt","utf-8",(err,result)=>{
+//     if(err) console.log("Error",err);
+//     else console.log(result);
+// })
+
+//append anything in the file
+// fs.appendFileSync("./test.txt", new Date().getDate().toLocaleString());
+// fs.appendFileSync("./test.txt", `Hey There\n`);
 
 
 

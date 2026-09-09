@@ -35,7 +35,9 @@ const userSchema = new mongoose.Schema({
     gender:{
         type:String,
     },
-}) //this is create schema
+} ,
+{timestamps:true};
+); //this is create schema
 // then we create schema to model
 
 const User = mongoose.model("user",userSchema)
@@ -126,7 +128,7 @@ app.post('/api/users', async (req,res)=>{
     // });
 
     //using mongodb
-    await User.create({
+    const result = await User.create({
         first_name: body.first_name,
         last_name: body.last_name,
         email: body.email,
