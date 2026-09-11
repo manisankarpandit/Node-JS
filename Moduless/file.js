@@ -1,9 +1,9 @@
 const fs = require("fs");
 
-// //create a syncronous file , no error throwing
+// //create a syncronous file , no error throwing it is blocking 
 // fs.writeFileSync("./test.txt","Hey there");
 
-//Async file only throw the error
+//Async file only throw the error , it is non blocking 
 // fs.writeFile("./test.txt","Hey there Async",(err)=>{});
 
 //readfile : create a file like contects.txt manulaay
@@ -26,5 +26,19 @@ const fs = require("fs");
 //Delete any file 
 // fs.unlinkSync("./copy.txt");
 
-console.log(fs.statSync("./test.txt"));
+//you can see the any file stastics
+// console.log(fs.statSync("./test.txt"));
+
+
+//create directiory or folder
+fs.mkdirSync("my_docs");
+
+
+
+
+
+
+
+
+
 
