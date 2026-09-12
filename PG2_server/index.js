@@ -9,7 +9,7 @@ function myhandler(req,res){
 
     const log = `${Date.now()}: ${req.method} ${req.url} New Req Received..\n`;
     const myUrl = url.parse(req.url,true);
-    console.log(myUrl);
+    console.log(myUrl); 
 
     fs.appendFile('log.txt',log, (err,data)=>{
         //use always non blogging request
