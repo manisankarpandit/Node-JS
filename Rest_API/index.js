@@ -26,6 +26,22 @@ app.get("/api/users/:id",(req,res)=>{
     return res.json(user);
 });
 
+app.post("/api/users",(req,res)=>{
+    //create new user
+    return res.json({status:pending});
+})
+
+app.patch("/api/users/:id",(req,res)=>{
+    //Edit user with id
+    return res.json({status:pending});
+});
+
+app.delete("/api/users/:id",(req,res)=>{
+    //create new user
+    return res.json({status:pending});
+});
+
+
 
 
 
