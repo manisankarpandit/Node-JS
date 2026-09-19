@@ -1,8 +1,12 @@
 const express = require("express");
+const fs = require('fs');
 const users = require('./MOCK_DATA (1).json');
 
 const app = express();
 const port = 8000;
+
+//middleware - plugin
+app.use(express.urlencoded({extended:false}));
 
 //Routes
 
@@ -28,17 +32,22 @@ app.get("/api/users/:id",(req,res)=>{
 
 app.post("/api/users",(req,res)=>{
     //create new user
-    return res.json({status:pending});
+    const body = req.body;
+    const id = users.length+1;
+    users.push({...body, id:id});
+    fs.writeFile('./MOCK_DATA (1).json',JSON.stringify(users), (err,data)=>{
+        return res.json({status:"SUCCESS",id:users.length+1});
+    })
 })
 
 app.patch("/api/users/:id",(req,res)=>{
     //Edit user with id
-    return res.json({status:pending});
+    return res.json({status:"pending"});
 });
 
 app.delete("/api/users/:id",(req,res)=>{
     //create new user
-    return res.json({status:pending});
+    return res.json({status:"pending"});
 });
 
 
