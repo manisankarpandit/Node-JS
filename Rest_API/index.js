@@ -42,12 +42,33 @@ app.post("/api/users",(req,res)=>{
 
 app.patch("/api/users/:id",(req,res)=>{
     //Edit user with id
-    return res.json({status:"pending"});
+    const id = Number(req.params.id);  // dynamicly  withdraw the id
+    const body = req.body;
+    const user = users.find((user)=>user.id===id);
+    Object.assign(user, body);//used to update the existing user with the new values sent in the PATCH request.
+    fs.writeFile("./MOCK_DATA (1).json", JSON.stringify(users), (err, data) => {
+
+        return res.json({
+            status: "SUCCESS"
+        });
+    });
 });
 
 app.delete("/api/users/:id",(req,res)=>{
     //create new user
-    return res.json({status:"pending"});
+    const id = Number(req.params.id);
+
+    const index = users.findIndex((user) => user.id === id);
+
+    users.splice(index, 1002);
+
+    fs.writeFile("./MOCK_DATA (1).json", JSON.stringify(users), (err) => {
+
+        return res.json({
+            status: "SUCCESS"
+        });
+
+    });
 });
 
 
