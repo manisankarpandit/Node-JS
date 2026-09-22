@@ -8,6 +8,16 @@ const port = 8000;
 //middleware - plugin
 app.use(express.urlencoded({extended:false}));
 
+app.use((req,res,next)=>{
+    console.log("HI MiddleWare 1");
+    res.send
+    next();
+})
+app.use((req,res,next)=>{
+    console.log("HI MiddleWare 2");
+    res.send
+    next();
+})
 //Routes
 
 app.get("/users",(req,res)=>{
@@ -21,6 +31,7 @@ app.get("/users",(req,res)=>{
 
 //Rest Api
 app.get("/api/users",(req,res)=>{
+    res.setHeader("myName","Mani Sankar Pandit");
      return res.json(users);
 })
 
